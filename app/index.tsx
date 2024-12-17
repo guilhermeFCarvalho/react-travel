@@ -64,7 +64,7 @@ export default function TravelPlanner() {
                 onPress={callItinerary}
             >
                 <Text style={styles.buttonText}>
-                    {isLoading ? "Gerando..." : "Gerar Ruoteiro"}
+                    {isLoading ? "Gerando..." : "Gerar Roteiro"}
                 </Text>
             </TouchableOpacity>
 

@@ -1,6 +1,6 @@
 const Groq = require('groq-sdk');
 
-const groq = new Groq({ });
+const groq = new Groq({apiKey:"",dangerouslyAllowBrowser: true});
 export async function generateTravelItinerary(destination: string) {
     try {
         const chatCompletion = await groq.chat.completions.create({
