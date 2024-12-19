@@ -1,6 +1,10 @@
+//Inicialização do sdk da IA para fazer as requisições
 const Groq = require('groq-sdk');
 
-const groq = new Groq({apiKey:"",dangerouslyAllowBrowser: true});
+
+const groq = new Groq({ apiKey: process.env.EXPO_PUBLIC_API_KEY, dangerouslyAllowBrowser: true });
+
+//Treinamento da IA + envio do prompt do usuário
 export async function generateTravelItinerary(destination: string) {
     try {
         const chatCompletion = await groq.chat.completions.create({
@@ -42,12 +46,12 @@ export async function generateTravelItinerary(destination: string) {
 
         });
 
-
+        //Retorno da api com a mensagem
         return chatCompletion.choices[0]?.message.content;
 
     } catch (error) {
 
-        return 'caiu aqui';
+        return 'Infelizmente, não foi possível processar sua solicitação no momento. Por favor, tente novamente';
 
 
     }
